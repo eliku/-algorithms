@@ -17,6 +17,8 @@ namespace Lesson2
 
             MainNode.AddNodeAfter(IsNode, 9);
 
+            MainNode.RemoveNode(2);
+
             Console.WriteLine(MainNode.GetCount());
             
         }

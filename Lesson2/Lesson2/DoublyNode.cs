@@ -67,5 +67,27 @@ namespace Lesson2
                 }
             }
         }
+        // удаляет элемент по порядковому номеру
+        public void RemoveNode(int index)
+        {
+            int Cnt = 0;           //количество элементов
+            Node current = head;   //берем первый элемент
+            Node currentPrev;
+
+            if (index <= GetCount())
+            {
+                while (Cnt < index - 1)
+                {
+                    current = current.NextNode;
+                    Cnt++;
+                }
+                currentPrev = current.NextNode;
+                current.NextNode = currentPrev.NextNode;
+            }
+            else
+            {
+                Console.WriteLine("В списке нет необходимого элемента");
+            }
+        }
     }
 }
