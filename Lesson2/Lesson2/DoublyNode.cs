@@ -70,23 +70,43 @@ namespace Lesson2
         // удаляет элемент по порядковому номеру
         public void RemoveNode(int index)
         {
-            int Cnt = 0;           //количество элементов
+            int Cnt = 1;           //количество элементов
             Node current = head;   //берем первый элемент
-            Node currentPrev;
+            Node currentNext, currentPrev;
 
             if (index <= GetCount())
             {
-                while (Cnt < index - 1)
+                while (Cnt < index-1)
                 {
                     current = current.NextNode;
                     Cnt++;
                 }
-                currentPrev = current.NextNode;
-                current.NextNode = currentPrev.NextNode;
+                current.NextNode.NextNode.PrevNode = current;
+                current.NextNode = current.NextNode.NextNode;
             }
             else
             {
                 Console.WriteLine("В списке нет необходимого элемента");
+            }
+        }
+        // удаляет указанный элемент
+        public void RemoveNode(Node node)
+        {
+            int Cnt = 0;           //количество элементов
+            //берем первый элемент
+            Node current = head;
+            try
+            {
+                while (current.Value != node.Value)
+                {
+                    current = current.NextNode;
+                    Cnt++;
+                }
+                RemoveNode(Cnt);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Нет необходимого элемента");
             }
         }
     }

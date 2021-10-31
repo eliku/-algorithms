@@ -13,11 +13,13 @@ namespace Lesson2
 
             MainNode.AddNode(8);
 
-            Node IsNode = new Node {Value = 8};
+            Node IsNode = new Node {Value = 7};
 
             MainNode.AddNodeAfter(IsNode, 9);
 
-            MainNode.RemoveNode(2);
+            MainNode.RemoveNode(3);
+
+            MainNode.RemoveNode(IsNode);
 
             Console.WriteLine(MainNode.GetCount());
             
