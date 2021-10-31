@@ -21,7 +21,9 @@ namespace Lesson2
 
             MainNode.RemoveNode(IsNode);
 
-            Console.WriteLine(MainNode.GetCount());
+            MainNode.FindNode(6);
+
+            Console.WriteLine(MainNode.FindNode(6).Value);
             
         }
     }

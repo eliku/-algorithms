@@ -14,7 +14,7 @@ namespace Lesson2
         void AddNodeAfter(Node node, int value); // добавляет новый элемент списка после определённого элемента
         void RemoveNode(int index);              // удаляет элемент по порядковому номеру
         void RemoveNode(Node node);              // удаляет указанный элемент
-          // Node FindNode(int searchValue);          // ищет элемент по его значению
+        Node FindNode(int searchValue);          // ищет элемент по его значению
 
     }
 }

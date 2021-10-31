@@ -109,5 +109,16 @@ namespace Lesson2
                 Console.WriteLine("Нет необходимого элемента");
             }
         }
+        // ищет элемент по его значению
+        public Node FindNode(int searchValue)
+        {
+            //берем первый элемент
+            Node current = head;
+            while (current.Value != searchValue)
+            {
+                current = current.NextNode;
+            }
+            return current;  
+        }
     }
 }
