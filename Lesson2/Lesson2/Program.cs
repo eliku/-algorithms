@@ -6,12 +6,19 @@ namespace Lesson2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            ILinkedList newNode = new Node();
-            Console.WriteLine(newNode.GetCount());
-            newNode.AddNode(6);
-            newNode.AddNode(7);
-            Console.WriteLine(newNode.GetCount());
+            DoublyNode MainNode = new DoublyNode();
+
+            MainNode.AddNode(6);
+            MainNode.AddNode(7);
+
+            MainNode.AddNode(8);
+
+            Node IsNode = new Node {Value = 8};
+
+            MainNode.AddNodeAfter(IsNode, 9);
+
+            Console.WriteLine(MainNode.GetCount());
+            
         }
     }
 }
