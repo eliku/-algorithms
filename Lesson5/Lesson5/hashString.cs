@@ -2,7 +2,7 @@
 using BenchmarkDotNet.Running;
 using System.Collections.Generic;
 
-namespace Lesson5
+namespace Lesson4
 {
     public class hashString:Program
     {

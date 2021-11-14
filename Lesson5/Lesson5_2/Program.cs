@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace Lesson5_2
+namespace Lesson4_2
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var tree = new TreeNode(); 
         }
     }
 }

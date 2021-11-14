@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lesson5_2
+namespace Lesson4_2
 {
-    class TreeNode
+    class TreeNode : ITree
     {
         public int Value { get; set; }
         public TreeNode LeftChild { get; set; }
@@ -20,6 +20,10 @@ namespace Lesson5_2
                 return false;
 
             return node.Value == Value;
+        }
+        public void AddItem(int value)
+        { 
+        
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
 
-namespace Lesson5
+namespace Lesson4
 {
     public class Program
     {

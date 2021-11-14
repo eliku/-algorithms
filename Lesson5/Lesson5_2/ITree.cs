@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lesson5_2
+namespace Lesson4_2
 {
     interface ITree
     {
-        TreeNode GetRoot();
+       // TreeNode GetRoot();
         void AddItem(int value); // добавить узел
-        void RemoveItem(int value); // удалить узел по значению
-        TreeNode GetNodeByValue(int value); //получить узел дерева по значению
-        void PrintTree(); //вывести дерево в консоль
+     //   void RemoveItem(int value); // удалить узел по значению
+     //   TreeNode GetNodeByValue(int value); //получить узел дерева по значению
+     //   void PrintTree(); //вывести дерево в консоль
     }
 }
