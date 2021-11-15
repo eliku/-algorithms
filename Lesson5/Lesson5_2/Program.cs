@@ -8,15 +8,22 @@ namespace Lesson4_2
 
         static void Main(string[] args)
         {
-            
-            tree.AddItem(4);
-            tree.AddItem(5);
-            tree.AddItem(2);
-            tree.AddItem(3);
-            tree.AddItem(7);
-            tree.AddItem(6);
-            tree.AddItem(8);
-            tree.PrintTree(tree);
+
+            tree = tree.AddItem(4, tree);
+            tree = tree.AddItem(5, tree);
+            tree = tree.AddItem(2, tree);
+            tree = tree.AddItem(3, tree);
+            tree = tree.AddItem(10, tree);
+            tree = tree.AddItem(4, tree);
+            tree = tree.AddItem(23, tree);
+            tree = tree.AddItem(34, tree);
+
+            var node = tree.GetNodeByValue(2);
+
+            tree = tree.RemoveItem(2, tree);
+            tree.PrintTree(Console.WindowWidth / 3, 0, tree);
+            Console.SetCursorPosition(0, 25);
+            Console.ReadLine();
         }
     }
 }

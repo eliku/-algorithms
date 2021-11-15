@@ -8,10 +8,10 @@ namespace Lesson4_2
 {
     interface ITree
     {
-       // TreeNode GetRoot();
-        void AddItem(int value); // добавить узел
-     //   void RemoveItem(int value); // удалить узел по значению
-     //   TreeNode GetNodeByValue(int value); //получить узел дерева по значению
-        void PrintTree(TreeNode node); //вывести дерево в консоль
+        // TreeNode GetRoot();
+        TreeNode AddItem(int value, TreeNode root); // добавить узел
+        TreeNode RemoveItem(int deleteData, TreeNode root); // удалить узел по значению
+        TreeNode GetNodeByValue(int value); //получить узел дерева по значению
+        void PrintTree(int x, int y, TreeNode node, int delta = 0); //вывести дерево в консоль  
     }
 }

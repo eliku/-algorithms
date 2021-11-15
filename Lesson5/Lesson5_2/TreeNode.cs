@@ -23,89 +23,91 @@ namespace Lesson4_2
 
             return node.Value == Value;
         }
-        public void AddItem(int value)
+        // добавить узел
+        public TreeNode AddItem(int value, TreeNode root)
         {
-            if (Value == null || Value == value)
+            if (root == null)
             {
-                Value = value;
-                return;
-            }
-
-            if (Value > value)
-            {
-                if (LeftChild == null)
-                {
-                    LeftChild = new TreeNode();
-                    Insert(value, LeftChild, this);
-                }
-                else {
-                    Insert(value, new TreeNode(), LeftChild);
-                }
+                root = new TreeNode();
+                root.Value = value;
             }
             else
             {
-                if (RightChild == null)
+                if (root.Value > value)
                 {
-                    RightChild = new TreeNode();
-                    Insert(value, RightChild, this);
+                    root.LeftChild = AddItem(value, root.LeftChild);
                 }
                 else
                 {
-                    Insert(value, new TreeNode(), RightChild);
+                    root.RightChild = AddItem(value, root.RightChild);
                 }
             }
+            return root;
         }
-        private void Insert(int value, TreeNode node, TreeNode parent)
+        
+        //получить узел дерева по значению
+        public TreeNode GetNodeByValue(int value)
         {
-
-            if (node.Value == null || Value == value)
+            if (Value == value) return this;
+            if (Value > value)
             {
-                node.Value = value;
-                node.Parent = parent;
-                return;
+                return GetNodeByValue(value, LeftChild);
             }
+            return GetNodeByValue(value, RightChild);
+        }
+
+        private TreeNode GetNodeByValue(int value, TreeNode node)
+        {
+            if (node == null) return null;
+
+            if (node.Value == value) return node;
             if (node.Value > value)
             {
-                if (LeftChild == null) LeftChild = new TreeNode();
-                Insert(value, node.LeftChild, node);
+                return GetNodeByValue(value, node.LeftChild);
             }
-            else
-            {
-                if (RightChild == null) RightChild = new TreeNode();
-                Insert(value, node.RightChild, node);
-            }
+            return GetNodeByValue(value, node.RightChild);
         }
-        public void PrintTree(TreeNode node)
+        //вывести дерево в консоль
+        public void PrintTree(int x, int y, TreeNode node, int delta = 0)
         {
             if (node != null)
             {
-                if (node.Parent == null)
-                {
-                    Console.WriteLine("ROOT:{0}", node.Value);
-                }
-                else
-                {
-                    if (node.Parent.LeftChild == node)
-                    {
-                        Console.WriteLine("Left for {1}  --> {0}", node.Value, node.Parent.Value);
-                    }
-
-                    if (node.Parent.RightChild == node)
-                    {
-                        Console.WriteLine("Right for {1} --> {0}", node.Value, node.Parent.Value);
-                    }
-                }
-                if (node.LeftChild != node)
-                {
-                    PrintTree(node.LeftChild);
-                }
-                if (node.RightChild != null)
-                {
-                    PrintTree(node.RightChild);
-                }
+                if (delta == 0) delta = x / 2;
+                Console.SetCursorPosition(x, y);
+                Console.Write($"___({node.Value})___");
+                Console.SetCursorPosition(x-1, y+1);
+                Console.WriteLine("/         \\");
+                PrintTree(x - delta, y + 3, node.LeftChild, delta / 2);
+                PrintTree(x + delta, y + 3, node.RightChild, delta / 2);
+            }
+        }
+        public TreeNode RemoveItem(int deleteData, TreeNode root)
+        {
+            if (root == null)
+                return root;
+            if (deleteData < root.Value)
+            {
+                root.LeftChild = RemoveItem(deleteData, root.LeftChild);
+            }
+            else if (deleteData > root.Value)
+            {
+                root.RightChild = RemoveItem(deleteData, root.RightChild);
+            }
+            else if (root.LeftChild != null && root.RightChild != null)
+            {
+                root.RightChild = RemoveItem(deleteData, root.RightChild);
+            }
+            else if (root.LeftChild != null)
+            {
+                return root.LeftChild;
+            }
+            else
+            {
+                return root.RightChild;
             }
 
-        }
+            return root;
 
+        }
     }
 }
