@@ -1,0 +1,53 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Lesson5
+{
+    class TreeNode:ITree
+    {
+        public int? Value { get; set; }
+        public TreeNode LeftChild { get; set; }
+        public TreeNode RightChild { get; set; }
+        public TreeNode Parent { get; set; }
+
+        // добавить узел
+        public TreeNode AddItem(int value, TreeNode root)
+        {
+            if (root == null)
+            {
+                root = new TreeNode();
+                root.Value = value;
+            }
+            else
+            {
+                if (root.Value > value)
+                {
+                    root.LeftChild = AddItem(value, root.LeftChild);
+                }
+                else
+                {
+                    root.RightChild = AddItem(value, root.RightChild);
+                }
+            }
+            return root;
+        }
+
+        //вывести дерево в консоль
+        public void PrintTree(int x, int y, TreeNode node, int delta = 0)
+        {
+            if (node != null)
+            {
+                if (delta == 0) delta = x / 2;
+                Console.SetCursorPosition(x, y);
+                Console.Write($"___({node.Value})___");
+                Console.SetCursorPosition(x - 1, y + 1);
+                Console.WriteLine("/          \\");
+                PrintTree(x - delta, y + 2, node.LeftChild, delta);
+                PrintTree(x + delta, y + 2, node.RightChild, delta);
+            }
+        }
+    }
+}
