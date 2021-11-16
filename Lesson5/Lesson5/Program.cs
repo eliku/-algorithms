@@ -22,7 +22,9 @@ namespace Lesson5
             //Console.SetCursorPosition(0, 25);
             Console.WriteLine("ОБХОД ДЕРЕВА В ШИРИНУ");
             Console.WriteLine(tree.Across(tree));
-
+            Console.WriteLine("ОБХОД ДЕРЕВА В ГЛУБИНУ");
+            string s = "";
+            Console.WriteLine(tree.Deep(tree, ref s));
             Console.ReadLine();
         }
     }

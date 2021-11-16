@@ -52,10 +52,10 @@ namespace Lesson5
         // обход дерева в ширину
         public string Across(TreeNode node)
         {
-            var queue = new Queue<TreeNode>(); // создать новую очередь
+            var queue = new Queue<TreeNode>();    // создать новую очередь
             string s = "";
-            queue.Enqueue(node); // поместить в очередь первый уровень
-            while (queue.Count != 0) // пока очередь не пуста
+            queue.Enqueue(node);                  // поместить в очередь первый уровень
+            while (queue.Count != 0)              // пока очередь не пуста
             {
                 if (queue.Peek().LeftChild != null)  queue.Enqueue(queue.Peek().LeftChild);
                 if (queue.Peek().RightChild != null) queue.Enqueue(queue.Peek().RightChild);
@@ -63,6 +63,19 @@ namespace Lesson5
                 s+= queue.Peek().Value.ToString() + " ";
                 queue.Dequeue();
                 
+            }
+            return s;
+        }
+        // обход дерева в глубину
+        public string Deep(TreeNode node, ref string s)
+        {
+            var stack = new Stack<TreeNode>();
+            stack.Push(node);                     // поместить в стек первый уровень
+            if (node != null) 
+            {
+                s += node.Value.ToString() + " "; // запомнить текущее значение
+                Deep(node.LeftChild, ref s);      // обойти левое поддерево
+                Deep(node.RightChild, ref s);     // обойти правое поддерево
             }
             return s;
         }
