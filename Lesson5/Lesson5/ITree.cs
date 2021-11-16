@@ -10,5 +10,6 @@ namespace Lesson5
     {
         TreeNode AddItem(int value, TreeNode root); // добавить узел
         void PrintTree(int x, int y, TreeNode node, int delta = 0); //вывести дерево в консоль 
+        string Across(TreeNode node);// обход дерева в ширину
     }
 }

@@ -49,5 +49,22 @@ namespace Lesson5
                 PrintTree(x + delta, y + 2, node.RightChild, delta);
             }
         }
+        // обход дерева в ширину
+        public string Across(TreeNode node)
+        {
+            var queue = new Queue<TreeNode>(); // создать новую очередь
+            string s = "";
+            queue.Enqueue(node); // поместить в очередь первый уровень
+            while (queue.Count != 0) // пока очередь не пуста
+            {
+                if (queue.Peek().LeftChild != null)  queue.Enqueue(queue.Peek().LeftChild);
+                if (queue.Peek().RightChild != null) queue.Enqueue(queue.Peek().RightChild);
+               
+                s+= queue.Peek().Value.ToString() + " ";
+                queue.Dequeue();
+                
+            }
+            return s;
+        }
     }
 }

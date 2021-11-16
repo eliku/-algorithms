@@ -19,7 +19,10 @@ namespace Lesson5
             tree = tree.AddItem(1, tree);
 
             tree.PrintTree(Console.WindowWidth / 4, 0, tree);
-            Console.SetCursorPosition(0, 25);
+            //Console.SetCursorPosition(0, 25);
+            Console.WriteLine("ОБХОД ДЕРЕВА В ШИРИНУ");
+            Console.WriteLine(tree.Across(tree));
+
             Console.ReadLine();
         }
     }
