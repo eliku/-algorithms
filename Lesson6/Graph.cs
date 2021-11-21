@@ -34,5 +34,23 @@ namespace Lesson6
                 Console.WriteLine("\n");
             }
         }
+
+        // обход дерева в ширину
+        public string Across(Node node)
+        {
+            var queue = new Queue<Node>();     // создать новую очередь
+            string s = "";
+            bool[] used = new bool[4];         //массив посещали вершину или нет
+
+            used[0] = true;
+            queue.Enqueue(node);
+
+            while (queue.Count != 0)          // пока очередь не пуста
+            {
+                 if (queue.Peek().Edges!=null) queue.Enqueue();
+            }
+          
+            return s;
+        }
     }
 }

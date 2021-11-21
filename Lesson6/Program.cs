@@ -29,7 +29,8 @@ namespace Lesson6
 
             ourGraph.printGraph();
 
-
+            Console.WriteLine("ОБХОД ГРАФА В ШИРИНУ");
+            ourGraph.Across(v0);
         }
     }
 
