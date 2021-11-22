@@ -30,7 +30,20 @@ namespace Lesson6
             ourGraph.printGraph();
 
             Console.WriteLine("ОБХОД ГРАФА В ШИРИНУ");
-            ourGraph.Across(v0);
+            v0.visited_f = false;
+            v1.visited_f = false;
+            v2.visited_f = false;
+            v3.visited_f = false;
+            Console.WriteLine(ourGraph.Across(v0));
+
+            Console.WriteLine("ОБХОД ДЕРЕВА В ГЛУБИНУ");
+            v0.visited_f = false;
+            v1.visited_f = false;
+            v2.visited_f = false;
+            v3.visited_f = false;
+            string s = "";
+            Console.WriteLine(ourGraph.Deep(v0, ref s));
+
         }
     }
 

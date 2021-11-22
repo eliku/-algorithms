@@ -35,21 +35,50 @@ namespace Lesson6
             }
         }
 
-        // обход дерева в ширину
+        // обход графа в ширину
         public string Across(Node node)
         {
             var queue = new Queue<Node>();     // создать новую очередь
             string s = "";
-            bool[] used = new bool[4];         //массив посещали вершину или нет
 
-            used[0] = true;
+            for (int i= 0; i<4; i++) node.visited_f= false;
+
             queue.Enqueue(node);
+            node.visited_f = true;
 
-            while (queue.Count != 0)          // пока очередь не пуста
+            while (queue.Count != 0)           // пока очередь не пуста
             {
-                 if (queue.Peek().Edges!=null) queue.Enqueue();
+                foreach (Node v in nodes)
+                {
+                    queue.Enqueue(v);
+                    if (!v.visited_f)
+                    {
+                        s += queue.Peek().Value.ToString() + " ";
+                        v.visited_f = true;
+                    }
+                    queue.Dequeue();
+                }
+                return s;
             }
           
+            return s;
+        }
+
+        // обход графа в глубину
+        public string Deep(Node node, ref string s)
+        {
+            var stack = new Stack<Node>();
+            stack.Push(node);                     // поместить в стек первый уровень
+            foreach (Node v in nodes)
+            {
+                if (!v.visited_f)
+                {
+                    s += v.Value.ToString() + " "; // запомнить текущее значение
+                    v.visited_f = true;
+                    Deep(v, ref s);
+                } 
+                
+            }
             return s;
         }
     }
