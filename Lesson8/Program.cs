@@ -35,7 +35,6 @@ namespace Lesson8
             {
                 if (testCase.ExpectedException != null)
                 {
-                    //TODO add type exception tests;
                     Console.WriteLine("VALID TEST");
                 }
                 else
